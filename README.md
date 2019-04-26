@@ -1,7 +1,7 @@
 <snippet>
 <content>
 # Starter Kit
-Belajar MVP with cache image
+Belajar MVP with cache image kotlin
 
 ## Silahkan searching di google apa itu mvp ya....
 
@@ -10,7 +10,7 @@ Belajar MVP with cache image
 
 ## Cara pakai
 1. Clone git ini
-2. Buka di android studio ( di sarankan android studi terbaru )
+2. Buka di android studio ( di sarankan android studio terbaru )
 3. Sync gradle dan coba jalankan sampai bisa terinstall di emulator / handphone
 
 ## Library
