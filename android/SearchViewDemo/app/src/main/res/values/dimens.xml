@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_padding">15dp</dimen>
+    <dimen name="common_margin">10dp</dimen>
+    <dimen name="extra_margin">15dp</dimen>
+    <dimen name="thumbnail_size">60dp</dimen>
+    <dimen name="thumbnail_corner">15dp</dimen>
+    <dimen name="title_font_size">21dp</dimen>
+    <dimen name="subtitle_font_size">18dp</dimen>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="@dimen/thumbnail_size"
+        android:layout_height="@dimen/thumbnail_size"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:padding="3dp"
+        android:background="@drawable/item_bg"
+        android:layout_marginRight="@dimen/item_padding"
+        android:layout_marginBottom="@dimen/common_margin" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginTop="@dimen/extra_margin"
+        android:layout_toRightOf="@id/picture"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/loading_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/title_font_size" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@id/picture"
+        android:text="@string/loading_text"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/subtitle_font_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/age"
+        android:layout_marginTop="@dimen/common_margin"
+        android:background="@color/colorPrimary"></View>
+
+</RelativeLayout>

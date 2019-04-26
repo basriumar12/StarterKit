@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Starter Kit</string>
+    <string name="progress_dialog">loading . . .</string>
+</resources>

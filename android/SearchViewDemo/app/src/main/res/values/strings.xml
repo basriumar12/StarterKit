@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Search View Demo</string>
+    <string name="loading_text">Loading ...</string>
+    <string name="search_hint">Search Name or Age</string>
+</resources>
