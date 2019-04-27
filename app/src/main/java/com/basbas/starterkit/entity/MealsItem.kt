@@ -1,6 +1,8 @@
 package com.basbas.starterkit.entity
 
+import android.graphics.Bitmap
 import com.google.gson.annotations.SerializedName
+import java.sql.Blob
 
 data class MealsItem(
 
@@ -11,5 +13,7 @@ data class MealsItem(
 	val idMeal: String? = null,
 
 	@field:SerializedName("strMeal")
-	val strMeal: String? = null
+	val strMeal: String? = null,
+
+	val image: Bitmap? = null
 )

@@ -1,11 +1,17 @@
 package com.basbas.starterkit.ui.activity.home
 
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.os.AsyncTask
+import com.basbas.starterkit.db.DatabaseHelper
+import com.basbas.starterkit.db.database
 import com.basbas.starterkit.entity.ResponseMeal
 import com.basbas.starterkit.network.ApiConfig
 import com.basbas.starterkit.utils.hasNetwork
 import retrofit2.Call
 import retrofit2.Response
+import java.lang.IndexOutOfBoundsException
+import java.net.URL
 
 class LogicHome (private val view: InterfaceHome.View, private val context: Context) : InterfaceHome.Presenter  {
     override fun loadDataMeals(string: String) {
@@ -27,6 +33,54 @@ class LogicHome (private val view: InterfaceHome.View, private val context: Cont
                         } else{
                             view.hideLoading()
                             view.loadData(response.body()?.meals)
+
+
+                            /// insert data di background
+                            class task : AsyncTask<String?, Int?, Void?>() {
+                                override fun doInBackground(vararg params: String?): Void? {
+
+
+                                    for (i in 0 until response.body()?.meals?.size!!){
+                                        try {
+
+                                            val url = response.body()!!.meals?.get(i)?.strMealThumb
+                                            val newUrl = url?.replace(" ", "%20")
+                                            val stream = URL(newUrl).openStream()
+                                            val bitmap = BitmapFactory.decodeStream(stream)
+
+                                            DatabaseHelper(context).mealAdd(
+                                                response.body()!!.meals?.get(i)?.strMeal,
+                                                response.body()!!.meals?.get(i)?.strMeal,
+                                                bitmap
+
+                                            )
+
+                                        } catch (e : IndexOutOfBoundsException){
+
+                                        }
+                                    }
+
+                                    return null
+                                }
+
+                                override fun onPreExecute() {
+                                    super.onPreExecute()
+                                 //   view.showLoading()
+                                }
+
+                                override fun onPostExecute(result: Void?) {
+                                    super.onPostExecute(result)
+                                   //  view.hideLoading()
+
+                                }
+
+
+                            }
+                            //task di execute
+                            task().execute()
+
+
+
                         }
                     }
 
@@ -40,6 +94,9 @@ class LogicHome (private val view: InterfaceHome.View, private val context: Cont
         } else{
 
             //get data offline
+            val dataItem = DatabaseHelper(context).loadDataOffline()
+            view.loadDataOffline(dataItem)
+
         }
 
 

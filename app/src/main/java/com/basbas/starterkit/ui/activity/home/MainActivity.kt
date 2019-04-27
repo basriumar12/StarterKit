@@ -7,15 +7,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.basbas.starterkit.R
 import com.basbas.starterkit.base.Baseactivity
 import com.basbas.starterkit.entity.MealsItem
+import com.basbas.starterkit.entity.MealsItemOffline
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Baseactivity(), InterfaceHome.View {
+    override fun loadDataOffline(data: List<MealsItemOffline?>?) {
+
+        if (data!= null) {
+            val adapterMeal = AdapterMealOffline(this, data)
+            adapterMeal.notifyDataSetChanged()
+            rv_meal.adapter = adapterMeal
+            swipe_refresh.isRefreshing = false
+        }
+    }
+
     override fun loadData(data: List<MealsItem?>?) {
 
         if (data!= null) {
             val adapterMeal = AdapterMeal(this, data)
             adapterMeal.notifyDataSetChanged()
             rv_meal.adapter = adapterMeal
+            swipe_refresh.isRefreshing = false
         }
     }
 
@@ -35,6 +47,11 @@ class MainActivity : Baseactivity(), InterfaceHome.View {
 
         presenter = LogicHome(this, this)
         presenter?.loadDataMeals("Canadian")
+
+        swipe_refresh.setOnRefreshListener{
+            presenter?.loadDataMeals("Canadian")
+
+        }
 
 
     }
