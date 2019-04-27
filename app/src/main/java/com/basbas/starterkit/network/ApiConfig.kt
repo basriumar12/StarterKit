@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit
 
 class ApiConfig {
 
+
     companion object {
 
 
@@ -25,9 +26,10 @@ class ApiConfig {
                 .writeTimeout(60L, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
                 .build()
+            val BASE_URL = "https://www.themealdb.com/api/json/v1/1/"
 
             return Retrofit.Builder()
-                .baseUrl("URL")
+                .baseUrl(BASE_URL)
                 .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

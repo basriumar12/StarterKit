@@ -10,7 +10,7 @@ import com.basbas.starterkit.utils.hasNetwork
 import com.valdesekamdem.library.mdtoast.MDToast
 import org.jetbrains.anko.ctx
 
-class Baseactivity : AppCompatActivity(), Baseview {
+open class Baseactivity : AppCompatActivity(), Baseview {
 
     lateinit var loading: MaterialDialog
 

@@ -1,10 +1,13 @@
 package com.basbas.starterkit.network
 
-interface ApiInterface {
+import com.basbas.starterkit.entity.ResponseMeal
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Query
 
-    //    @FormUrlEncoded
-//    @POST("api/buyer_chat")
-//    fun loadChat(@Field("buyer_id")idUser : String,
-//                     @Field("seller_id")IdSeller : String)
-//                          : Call<ResponseChat>
+interface ApiInterface {
+    @GET("filter.php")
+    fun loadDataMeal(
+        @Query("a") area: String
+    ) : Call<ResponseMeal>
 }
