@@ -19,6 +19,7 @@ Belajar MVP with cache image kotlin
 3. Anko 
 4. Material Toast 
 5. Androidx
+6. DI
 
 
 ## API
